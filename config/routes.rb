@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'items/new'
+
+  get 'items/create'
+
   devise_for :users
-  resources :users
+  resources :users, only: [:update, :show] do
+    resources :items
+
+  end
 
   authenticated do
     root to: "users#show", as: :authenticated
   end
-  
+
   root 'home#index'
 
 

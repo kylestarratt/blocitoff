@@ -1,0 +1,4 @@
+<% if @item.valid? %>
+  $('#ToDos').append("<%= escape_javascript(render(@item)) %>");
+  $('#new_item')[0].reset();
+<% end %>
