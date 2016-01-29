@@ -1,5 +1,8 @@
 <tr id="item-<%= item.id %>">
   <td>
-    <p><%= item.name %></p>
+    <p>
+      <%= link_to " ", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-scissors' %>
+      <%= item.name %>
+    </p>
   </td>
 </tr>

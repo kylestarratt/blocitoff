@@ -1,1 +1,5 @@
-$('#item-<% item.id %>')[0].remove()
+<% if @item.destroyed? %>
+    $('#item-<%= @item.id %>').remove()
+<% else %>
+    $('#item-<%= @item.id %>').prepend("<div class='alert alert-danger'><%= flash[:error] %></div>")
+<% end %>

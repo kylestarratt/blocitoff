@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-right"><h4><u>
             <% if current_user %>
-            Hello <%= link_to (current_user.name), edit_user_registration_path %>!! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            Hello <%= link_to (current_user.name), edit_user_registration_path %>!!<br> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             <% else %>
             <%= link_to "Sign In", new_user_session_path %> or
             <%= link_to "Sign Up", new_user_registration_path %>
@@ -26,17 +26,19 @@
        </div>
       </div>
   </nav>
-  <% if flash[:notice] %>
-    <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:notice] %>
-    </div>
-    <% elsif flash[:error] %>
-    <div class="alert alert-danger">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:error] %>
-    </div>
-    <% end %>
+  <div class="flash">
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:notice] %>
+      </div>
+      <% elsif flash[:error] %>
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:error] %>
+      </div>
+      <% end %>
+  </div>
 
     <%= yield %>
 
