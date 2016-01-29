@@ -1,18 +1,17 @@
 <div class="container">
 	<div class="row">
-			<div class="text-center">
-	        <h1><%= current_user.name %>'s List of things to get done!</h1><br>
-	    </div>
+		<div class="text-center">
+			<h1><%= current_user.name %>'s List of things to get done!</h1><br><br>
+		</div>
 	</div>
-			<table id="ToDos" class="table">
-				<div class='text-center'>
-					<%= render @items %>
-				</div>
-			</table>
+	<table id="ToDos" class="table">
+		<div class='text-center'>
+			<%= render @items %>
+		</div>
+	</table>
 
-			<div class='new-item'>
-					<h3>Create New ToDo!</h3>
-						<%= render 'items/form' %>
-			</div>
+	<div class='new-item'>
+		<h3>Create New ToDo!</h3><br>
+		<%= render 'items/form' %>
 	</div>
 </div>

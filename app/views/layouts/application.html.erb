@@ -14,9 +14,9 @@
       <div class="page-header">
         <h1></strong>Bloc It Off</strong></br><small><em>The self-destructing ToDo list</em></small></h1>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-right"><h4><u>
+          <ul class="nav navbar-right"><h4>
             <% if current_user %>
-            Hello <%= link_to (current_user.name), edit_user_registration_path %>!!<br> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            Hello <%= link_to (current_user.name), edit_user_registration_path %>!!<u><br> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             <% else %>
             <%= link_to "Sign In", new_user_session_path %> or
             <%= link_to "Sign Up", new_user_registration_path %>
@@ -48,7 +48,7 @@
   <div class="container">
   </br>
     <address>
-      <strong>RentitEZ.com</strong><br>
+      <strong>Rent it EZ</strong><br>
       1655 W. Fairview Ave. Suite, 101b<br>
       Boise, ID 87902<br>
     </address>

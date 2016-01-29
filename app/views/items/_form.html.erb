@@ -1,11 +1,11 @@
-<%= form_for [@user, @user.items.build], remote: true do |f| %>
-	<div class="container">
+<div class="container">
+	<%= form_for [@user, @user.items.build], remote: true do |f| %>
 		<div class="form-group">
 			<%= f.text_field :name, autofocus: true, placeholder: "Enter ToDo Item" %>
 		</div>
 
 		<div class="form-group">
-			<%= f.submit "Save", class: 'btn btn-success' %>
+			<%= f.submit "Save", class: 'btn btn-warning' %>
 		</div>
-	</div>
-<% end %>
+	<% end %>
+</div>

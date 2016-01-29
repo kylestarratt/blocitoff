@@ -1,8 +1,21 @@
 <tr id="item-<%= item.id %>">
   <td>
-    <p>
-      <%= link_to " ", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-scissors' %>
-      <%= item.name %>
-    </p>
-  </td>
+    <table class="table"
+    <div class="row">
+
+      <div class="col-md-1">
+        <%= link_to " ", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-floppy-remove' %>
+      </div>
+
+      <div class="col-md-6">
+        <%= item.name %>
+      </div>
+
+      <div class="col-md-3">
+        <strong>"<%= item.days_left %>" days remaining</strong>
+      </div>
+
+    </div>
+  </table>
+</td>
 </tr>
