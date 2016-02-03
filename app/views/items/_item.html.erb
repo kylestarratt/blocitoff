@@ -3,16 +3,22 @@
     <table class="table"
     <div class="row">
 
+      <div class="col-md-4">
+        <strong><%= item.name %></strong>
+      </div>
+
       <div class="col-md-1">
         <%= link_to " ", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-floppy-remove' %>
       </div>
 
-      <div class="col-md-6">
-        <%= item.name %>
-      </div>
-
       <div class="col-md-3">
-        <strong>"<%= item.days_left %>" days remaining</strong>
+        <u><em><% if item.days_left <= 0 %>
+					Started Today
+				<% elsif item.days_left == 1 %>
+					Started 1 day ago
+				<% else %>
+					Started <%= item.days_left %> days ago
+				<% end %></em></u>
       </div>
 
     </div>

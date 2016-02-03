@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :setup_fake_flash
+
   def new
     @user = User.find(params[:user_id])
     @item = Item.new
@@ -13,9 +15,9 @@ class ItemsController < ApplicationController
     @new_item = Item.new
 
     if @item.save
-      flash[:notice] = "Item was saved"
+      @flash[:notice] = "#{@item.name} was saved"
     else
-      flash[:notice] = "Error: Item was not saved"
+      @flash[:notice] = "Error: Item was not saved"
     end
 
     respond_to do |format|
@@ -30,9 +32,9 @@ class ItemsController < ApplicationController
     @item = @user.items.find(params[:id])
 
     if @item.destroy
-      flash[:notice] = "#{@item.name} has been deleted"
+      @flash[:notice] = "#{@item.name} has been deleted"
     else
-      flash[:notice] = "Item couldn't be deleted"
+      @flash[:notice] = "Item couldn't be deleted"
     end
 
     respond_to do |format|
@@ -42,6 +44,10 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def setup_fake_flash
+    @flash = {}
+  end
 
   def item_params
     params.require(:item).permit(:name)
